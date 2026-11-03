@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data: content:; connect-src 'self';">
+<title>Directorios</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+<header class="header">
+  <div class="header-icon">📁</div>
+  <div><h1>Directorios</h1><p>Configuración de almacenamiento</p></div>
+</header>
+
+<main class="content">
+<section class="welcome">
+  <h2>Configuración SFTP</h2>
+  <p>Ingresa los datos del servidor para enviar automáticamente los archivos pendientes.</p>
+</section>
+<section class="sftp-card">
+  <label>Dirección SFTP<input id="sftpHost" type="text" placeholder="sftp.ejemplo.cl"></label>
+  <label>Puerto<input id="sftpPort" type="number" value="22" placeholder="22"></label>
+  <label>Usuario<input id="sftpUser" type="text" placeholder="usuario"></label>
+  <label>Password<input id="sftpPassword" type="password" placeholder="••••••••"></label>
+</section>
+<section class="transfer-card">
+  <div><strong>Estado de conexión</strong><p id="connection-text">Verificando conexión...</p></div>
+  <span id="connection-dot" class="connection-dot"></span>
+</section>
+<section class="background-card"><div><strong>Proceso en segundo plano</strong><p id="background-text">Proceso detenido</p></div><button id="btnBackground" class="background-button">▶ Iniciar proceso background</button></section>
+<section class="log-card"><div class="log-header"><h3>Últimos 10 procesos</h3><button id="btnLogs" class="logs-button">↻ Actualizar</button></div><div id="transfer-log">Sin procesos registrados todavía.</div></section>
+
+  <h2>Seleccionar directorios</h2>
+  <p>Selecciona las carpetas que utilizará la aplicación.</p>
+</section>
+
+<section class="folder-card">
+  <div class="folder-icon">📂</div>
+  <div class="folder-info">
+    <h3>Directorio origen Imegenes</h3>
+    <p id="origen-text">Ningún directorio seleccionado</p>
+  </div>
+  <button id="btnOrigen" class="select-button">Examinar</button>
+</section>
+
+<section class="folder-card">
+  <div class="folder-icon">📁</div>
+  <div class="folder-info">
+    <h3>Directorio origen Archivos</h3>
+    <p id="destino-text">Ningún directorio seleccionado</p>
+  </div>
+  <button id="btnDestino" class="select-button">Examinar</button>
+</section>
+
+<section id="status" class="status hidden">
+  <div id="status-icon" class="status-icon">✓</div>
+  <div>
+    <strong id="status-title">Directorio seleccionado</strong>
+    <p id="status-message"></p>
+  </div>
+</section>
+</main>
+<div class="actions">
+
+    <button
+        id="btnGrabar"
+        class="save-button">
+
+        💾 Grabar rutas
+
+    </button>
+
+</div>
+<footer><span>IGM process</span><span>IGM process</span></footer>
+</div>
+<script src="cordova.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

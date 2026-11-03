@@ -1,0 +1,71 @@
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#2563eb;--primary-dark:#1d4ed8;--background:#f5f7fb;--card:#fff;--text:#172033;--text-secondary:#6b7280;--border:#e5e7eb;--success:#16a34a}
+html,body{width:100%;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--background);color:var(--text)}
+body{min-height:100vh}.app{min-height:100vh;display:flex;flex-direction:column}
+.header{background:var(--primary);color:#fff;padding:calc(24px + env(safe-area-inset-top)) 24px 24px;display:flex;align-items:center;gap:16px;box-shadow:0 4px 15px rgba(0,0,0,.12)}
+.header-icon{width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:27px}
+.header h1{font-size:22px;font-weight:700}.header p{margin-top:3px;font-size:13px;opacity:.85}
+.content{width:100%;max-width:700px;margin:auto;padding:28px 20px;flex:1}
+.welcome{margin-bottom:24px}.welcome h2{font-size:22px;margin-bottom:8px}.welcome p{color:var(--text-secondary);line-height:1.5}
+.folder-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:18px;margin-bottom:16px;display:flex;align-items:center;gap:14px;box-shadow:0 5px 20px rgba(0,0,0,.05);transition:transform .15s ease}
+.folder-card:active{transform:scale(.985)}.folder-icon{width:48px;height:48px;min-width:48px;border-radius:14px;background:#eff6ff;display:flex;align-items:center;justify-content:center;font-size:24px}
+.folder-info{flex:1;min-width:0}.folder-info h3{font-size:16px;margin-bottom:5px}.folder-info p{font-size:13px;color:var(--text-secondary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.select-button{border:none;background:var(--primary);color:#fff;padding:11px 17px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s ease,transform .1s ease}
+.select-button:active{transform:scale(.94);background:var(--primary-dark)}
+.status{margin-top:25px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:18px;padding:16px;display:flex;align-items:center;gap:12px}
+.status-icon{width:38px;height:38px;border-radius:50%;background:var(--success);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold}
+.status strong{font-size:14px}.status p{color:#166534;font-size:12px;margin-top:3px;word-break:break-all}.hidden{display:none}
+footer{padding:15px 20px calc(15px + env(safe-area-inset-bottom));display:flex;justify-content:space-between;color:#9ca3af;font-size:12px}
+@media (min-width:600px){.content{padding-top:45px}.folder-card{padding:22px}.select-button{padding:12px 22px}}
+.actions {
+
+    margin-top: 28px;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+.save-button {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    border: none;
+
+    background: #16a34a;
+
+    color: white;
+
+    padding: 15px 20px;
+
+    border-radius: 16px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(22,163,74,.25);
+
+    transition:
+        transform .1s ease,
+        background .15s ease;
+
+}
+
+.save-button:active {
+
+    transform: scale(.97);
+
+    background: #15803d;
+
+}
+.sftp-card,.transfer-card,.log-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:18px;margin-bottom:16px;box-shadow:0 5px 20px rgba(0,0,0,.05)}
+.sftp-card{display:grid;grid-template-columns:1fr 1fr;gap:14px}.sftp-card label{font-size:13px;font-weight:600}.sftp-card input{display:block;width:100%;margin-top:7px;padding:12px;border:1px solid var(--border);border-radius:10px;font-size:14px}.transfer-card{display:flex;justify-content:space-between;align-items:center}.transfer-card p{font-size:13px;color:var(--text-secondary);margin-top:4px}.connection-dot{width:12px;height:12px;border-radius:50%;background:#dc2626}.connection-dot.online{background:#16a34a}.log-card h3{font-size:16px;margin-bottom:10px}.log-card div{white-space:pre-wrap;font:12px monospace;color:var(--text-secondary);max-height:130px;overflow:auto}@media(max-width:480px){.sftp-card{grid-template-columns:1fr}}
+
+.background-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:18px;margin-bottom:16px;box-shadow:0 5px 20px rgba(0,0,0,.05);display:flex;align-items:center;justify-content:space-between;gap:16px}.background-card p{font-size:13px;color:var(--text-secondary);margin-top:4px}.background-button,.logs-button{border:none;background:var(--primary);color:#fff;padding:12px 16px;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer}.background-button.running{background:#dc2626}.log-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.logs-button{padding:7px 10px;font-size:12px;background:#6b7280}@media(max-width:600px){.background-card{flex-direction:column;align-items:stretch}.background-button{width:100%}}

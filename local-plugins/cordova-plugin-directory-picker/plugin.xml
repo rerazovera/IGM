@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="cordova-plugin-directory-picker" version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>DirectoryPicker</name>
+    <description>Plugin Cordova para seleccionar directorios en Android mediante Storage Access Framework</description>
+    <license>MIT</license>
+    <keywords>cordova,android,directory,folder,picker,storage,saf</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=12.0.0" />
+        <engine name="cordova-android" version=">=13.0.0" />
+    </engines>
+
+    <js-module src="www/DirectoryPicker.js" name="DirectoryPicker">
+        <clobbers target="DirectoryPicker" />
+    </js-module>
+
+    <platform name="android">
+        <framework src="androidx.documentfile:documentfile:1.0.1" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="DirectoryPicker">
+                <param name="android-package" value="com.ejemplo.directorypicker.DirectoryPicker" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/DirectoryPicker.java"
+                     target-dir="src/com/ejemplo/directorypicker" />
+    </platform>
+</plugin>

@@ -1,0 +1,9 @@
+{
+  "name": "cordova-plugin-sftp-background",
+  "version": "1.1.0",
+  "description": "Servicio Cordova Android para sincronización SFTP en background mediante SAF",
+  "cordova": { "id": "cordova-plugin-sftp-background", "platforms": ["android"] },
+  "keywords": ["cordova", "sftp", "background", "android", "upload"],
+  "author": "IGM",
+  "license": "MIT"
+}

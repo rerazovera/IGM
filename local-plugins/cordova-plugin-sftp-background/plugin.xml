@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="cordova-plugin-sftp-background"
+        version="1.1.0"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>SFTP Background</name>
+    <description>Servicio Android nativo para sincronización SFTP en segundo plano usando SAF.</description>
+    <engines><engine name="cordova-android" version=">=13.0.0" /></engines>
+    <js-module src="www/SftpBackground.js" name="SftpBackground">
+        <clobbers target="cordova.plugins.sftpBackground" />
+    </js-module>
+    <platform name="android">
+        <framework src="com.github.mwiede:jsch:0.2.20" />
+        <framework src="androidx.documentfile:documentfile:1.0.1" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SftpBackground">
+                <param name="android-package" value="com.igm.sftp.SftpBackground" />
+            </feature>
+        </config-file>
+
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+            <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+            <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+            <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+        </config-file>
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+            <service android:name="com.igm.sftp.SftpUploadService"
+                     android:exported="false"
+                     android:foregroundServiceType="dataSync"
+                     android:stopWithTask="false" />
+            <receiver android:name="com.igm.sftp.BootReceiver"
+                      android:enabled="true"
+                      android:exported="true">
+                <intent-filter>
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+                    <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                </intent-filter>
+            </receiver>
+        </config-file>
+        <source-file src="src/android/SftpBackground.java" target-dir="src/com/igm/sftp" />
+        <source-file src="src/android/SftpUploadService.java" target-dir="src/com/igm/sftp" />
+        <source-file src="src/android/BootReceiver.java" target-dir="src/com/igm/sftp" />
+    </platform>
+</plugin>

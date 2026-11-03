@@ -1,0 +1,15 @@
+android {
+    packagingOptions {
+        exclude 'META-INF/versions/**'
+        exclude 'META-INF/OSGI-INF/**'
+    }
+    aaptOptions {
+        // Desactiva la restricción de metadatos AAR
+        ignoreAssetsPattern '!*.aar'
+    }
+    compileSdkVersion 34
+}
+
+ext {
+    cdvCompileSdkVersion = 34
+}
