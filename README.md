@@ -1,5 +1,13 @@
 # IGM process – SFTP Background v5
 
+## Intro
+
+Aplicacion Android desarrollada en Cordova que permite, enviar a un SFTP, desde 2 capetas, con un proceso en backend que valida la conexion a Internet para poder hacer el envio, esto permite trabajar offline.
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
 ## Nuevas funciones
 - Botón **Iniciar proceso background** / **Detener proceso background**.
 - El proceso se ejecuta como Foreground Service nativo y puede continuar con la pantalla apagada, sujeto a las restricciones de Android.
