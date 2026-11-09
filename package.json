@@ -7,7 +7,7 @@
   "scripts": {
     "build": "cordova build android",
     "run": "cordova run android",
-    "prepare": "cordova prepare"
+    "prepare:android": "cordova prepare android"
   },
   "keywords": [
     "cordova",
@@ -20,15 +20,21 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-directory-picker": {},
-      "cordova-plugin-sftp-background": {}
+      "cordova-plugin-sftp-background": {},
+      "cordova-plugin-igm-admob": {
+        "ADMOB_APP_ID": "ca-app-pub-4636587698394377~6030257030"
+      }
     },
     "platforms": [
       "android"
     ]
   },
   "devDependencies": {
-    "cordova-android": "^15.1.0",
     "cordova-plugin-directory-picker": "file:local-plugins/cordova-plugin-directory-picker",
+    "cordova-plugin-igm-admob": "file:local-plugins/cordova-plugin-igm-admob",
     "cordova-plugin-sftp-background": "file:local-plugins/cordova-plugin-sftp-background"
+  },
+  "dependencies": {
+    "cordova-android": "15.1.0"
   }
 }

@@ -1,0 +1,15 @@
+{
+  "name": "cordova-plugin-igm-admob",
+  "version": "1.0.0",
+  "description": "Google AdMob banner nativo Cordova Android",
+  "cordova": {
+    "id": "cordova-plugin-igm-admob",
+    "platforms": [
+      "android"
+    ]
+  },
+  "engines": {
+    "cordova": ">=12"
+  },
+  "license": "MIT"
+}

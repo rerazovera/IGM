@@ -7,9 +7,9 @@ android {
         // Desactiva la restricción de metadatos AAR
         ignoreAssetsPattern '!*.aar'
     }
-    compileSdkVersion 34
+    compileSdkVersion 35
 }
 
 ext {
-    cdvCompileSdkVersion = 34
+    cdvCompileSdkVersion = 35
 }

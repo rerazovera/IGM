@@ -14,6 +14,7 @@ function init() {
     cargarDirectorios(); cargarSftp(); actualizarConexion(); actualizarEstadoBackground(); cargarLogs();
     setInterval(actualizarConexion, 30000);
     setInterval(actualizarEstadoBackground, 5000);
+    inicializarAnuncios();
     log("Aplicación inicializada.");
 }
 async function seleccionarDirectorio(tipo) {
@@ -108,4 +109,16 @@ function validarConfig() {
 
     console.log(" Configuración validada correctamente.");
     return true;
+}
+// AdMob solo se ejecuta con la actividad visible, nunca desde el servicio SFTP background.
+function inicializarAnuncios() {
+    const cfg = window.IGM_ADMOB_CONFIG;
+    if (!cfg || !cfg.bannerEnabled || !cfg.bannerAdUnitId) return;
+    if (!window.IGMAdMob || typeof window.IGMAdMob.showBanner !== 'function') {
+        console.warn('IGMAdMob: plugin no instalado; ejecutar npm install y cordova prepare android.');
+        return;
+    }
+    window.IGMAdMob.showBanner(cfg.bannerAdUnitId,
+        () => console.info('IGMAdMob: solicitud de banner enviada'),
+        e => console.warn('IGMAdMob: error del banner', e));
 }

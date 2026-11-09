@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-igm-admob" version="1.0.0">
+    <name>IGMAdMob</name>
+    <description>Banner nativo Google AdMob para IGM Cordova Android</description>
+    <license>MIT</license>
+    <engines><engine name="cordova" version=">=12.0.0"/><engine name="cordova-android" version=">=13.0.0"/></engines>
+    <preference name="ADMOB_APP_ID" default="ca-app-pub-3940256099942544~3347511713" />
+    <js-module src="www/IGMAdMob.js" name="IGMAdMob"><clobbers target="IGMAdMob" /></js-module>
+    <platform name="android">
+        <framework src="com.google.android.gms:play-services-ads:24.5.0" />
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="$ADMOB_APP_ID" />
+        </config-file>
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="IGMAdMob"><param name="android-package" value="cl.igm.admob.IGMAdMob" /></feature>
+        </config-file>
+        <source-file src="src/android/IGMAdMob.java" target-dir="src/cl/igm/admob" />
+    </platform>
+</plugin>
